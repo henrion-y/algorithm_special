@@ -39,7 +39,7 @@ import (
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-func isalnum(ch byte) bool {
+func isAlNum(ch byte) bool {
 	return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')
 }
 
@@ -47,7 +47,7 @@ func isalnum(ch byte) bool {
 func isPalindrome(s string) bool {
 	var s2, s3 []byte
 	for i := 0; i < len(s); i++ {
-		if isalnum(s[i]) {
+		if isAlNum(s[i]) {
 			s2 = append(s2, s[i])
 		}
 	}
@@ -62,7 +62,7 @@ func isPalindrome(s string) bool {
 func isPalindrome2(s string) bool {
 	var s2 []byte
 	for i := 0; i < len(s); i++ {
-		if isalnum(s[i]) {
+		if isAlNum(s[i]) {
 			s2 = append(s2, s[i])
 		}
 	}
@@ -82,7 +82,7 @@ func isPalindrome2(s string) bool {
 func isPalindrome3(s string) bool {
 	var s2 []byte
 	for i := 0; i < len(s); i++ {
-		if isalnum(s[i]) {
+		if isAlNum(s[i]) {
 			s2 = append(s2, s[i])
 		}
 	}

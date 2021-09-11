@@ -66,6 +66,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 		return head
 	}
 	head.Next = removeElements(head.Next, val)
+	// 这里等价于 如果 head.Next.Val == val 则head.Next=head.Next.Next
 	if head.Val == val {
 		return head.Next
 	}

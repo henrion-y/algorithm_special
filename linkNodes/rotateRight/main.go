@@ -43,50 +43,47 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// 注意看题， 这里是向右移动，也就是链表后移！！！！
 func rotateRight(head *ListNode, k int) *ListNode {
-	if k == 0 || head == nil || head.Next == nil {
-		return head
-	}
-	n:=1
-	p := head
-	for p.Next != nil {
-		p = p.Next
-		n++
-	}
-	// todo 这里为什么直接移动k个位置会出错呢！！！
-	add := n - k%n
-	if add == n {
-		return head
-	}
-	p.Next = head
-	for i := 0; i < add; i++ {
-		p = p.Next
-	}
-	ret := p.Next
-	p.Next = nil
-	return ret
-
 	//if k == 0 || head == nil || head.Next == nil {
 	//	return head
 	//}
-	//n := 1
-	//iter := head
-	//for iter.Next != nil {
-	//	iter = iter.Next
+	//n:=1
+	//p := head
+	//for p.Next != nil {
+	//	p = p.Next
 	//	n++
 	//}
+	//// todo 这里为什么直接移动k个位置会出错呢！！！， 因为是右移， 指针要倒着走
 	//add := n - k%n
 	//if add == n {
 	//	return head
 	//}
-	//iter.Next = head
-	//for add > 0 {
-	//	iter = iter.Next
-	//	add--
+	//p.Next = head
+	//for i := 0; i < add; i++ {
+	//	p = p.Next
 	//}
-	//ret := iter.Next
-	//iter.Next = nil
+	//ret := p.Next
+	//p.Next = nil
 	//return ret
+
+	if k == 0 || head == nil || head.Next == nil {
+		return head
+	}
+	var ret *ListNode
+	p := head
+	listLen := 1
+	for p.Next != nil {
+		p = p.Next
+		listLen++
+	}
+	p.Next = head
+	for i := 0; i < listLen-k%listLen; i++ {
+		p = p.Next
+	}
+	ret = p.Next
+	p.Next = nil
+	return ret
 
 }
 

@@ -80,10 +80,11 @@ func addTwoNumbers(l1, l2 *ListNode) (head *ListNode) {
 		sum, carry = sum%10, sum/10
 		// 头节点
 		if head == nil {
+			// 这里初始化head，并且将tail指向head
 			head = &ListNode{Val: sum}
 			tail = head
 		} else {
-			// 添加新节点
+			// 治理利用tail不断添加新节点
 			tail.Next = &ListNode{Val: sum}
 			tail = tail.Next
 		}

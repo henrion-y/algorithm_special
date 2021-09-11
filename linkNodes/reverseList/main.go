@@ -59,6 +59,7 @@ type ListNode struct {
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode
 	p := head
+	// 先获取到head的下一个节点， 再修改head的指向，再移动prev的位置黑head， 最后移动head的位置为hext
 	for p != nil {
 		next := p.Next
 		p.Next = prev
